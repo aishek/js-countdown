@@ -1,7 +1,7 @@
 js-countdown
 ============
 
-[Demo](http://aishek.github.io/js-countdown/) | [Latest Release v0.0.1](https://github.com/aishek/js-countdown/releases/tag/v0.0.1)
+[Demo](http://aishek.github.io/js-countdown/) | [Latest Release v0.0.2](https://github.com/aishek/js-countdown/releases/tag/v0.0.2)
 
 Javascript countdown ready-to-use solution with pluralization in English and Russian languages.
 
