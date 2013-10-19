@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Countdown demo</title>
+  <script src="countdown.js"></script>
+</head>
+<body>
+<p style="text-align: center;" id="to"></p>
+<script>
+  var to = document.getElementById('to'),
+      to_countdown = new Countdown(
+        {
+          progress: function(seconds) {
+            var progress = new Countdown.Helper.Progress(seconds),
+                label = [];
+
+            var days = progress.days();
+            if (days > 0) {
+              label.push(days + ' ' + Countdown.Helper.Pluralize.ru.days(days));
+            }
+
+            var hours = progress.hours();
+            if (hours > 0) {
+              label.push(hours + ' ' + Countdown.Helper.Pluralize.ru.hours(hours));
+            }
+
+            var minutes = progress.minutes();
+            if (minutes > 0) {
+              label.push(minutes + ' ' + Countdown.Helper.Pluralize.ru.minutes(minutes));
+            }
+
+            var seconds = progress.seconds();
+            label.push(seconds + ' ' + Countdown.Helper.Pluralize.ru.seconds(seconds));
+
+            label = label.join(' ');
+            to.innerHTML = label;
+          },
+          complete: function() {
+            console.log("[to] complete");
+          }
+        }
+      );
+  to_countdown.start_to(1383096820);
+</script>
+
+<p style="text-align: center;" id="from"></p>
+<script>
+  var from = document.getElementById('from'),
+      from_countdown = new Countdown(
+        {
+          progress: function(seconds) {
+            var progress = new Countdown.Helper.Progress(seconds),
+                label = [];
+
+            var days = progress.days();
+            if (days > 0) {
+              label.push(days + ' ' + Countdown.Helper.Pluralize.ru.days(days));
+            }
+
+            var hours = progress.hours();
+            if (hours > 0) {
+              label.push(hours + ' ' + Countdown.Helper.Pluralize.ru.hours(hours));
+            }
+
+            var minutes = progress.minutes();
+            if (minutes > 0) {
+              label.push(minutes + ' ' + Countdown.Helper.Pluralize.ru.minutes(minutes));
+            }
+
+            var seconds = progress.seconds();
+            label.push(seconds + ' ' + Countdown.Helper.Pluralize.ru.seconds(seconds));
+
+            label = label.join(' ');
+            from.innerHTML = label;
+          },
+          complete: function() {
+            console.log("[from] complete");
+          }
+        }
+      );
+  from_countdown.start_from(0);
+</script>
+</body>
+</html>
