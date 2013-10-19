@@ -1,5 +1,3 @@
-Countdown.Helper.Pluralize = {};
-
 function ru_pluralize(number, one, few, many, other) {
   var _ref, _ref1, _ref2, _ref3;
 

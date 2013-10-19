@@ -21,6 +21,8 @@ module.exports = function(grunt) {
           'src/helper/progress.js',
           'src/helper/pluralize.js',
           'src/helper/pluralize/ru.js',
+          'src/helper/pluralize/en.js',
+          'src/helper/pluralize/label_builder_factory.js',
           'src/module_end.js'
         ],
         dest: 'countdown.js'
