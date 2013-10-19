@@ -1,4 +1,4 @@
-/** @preserve javascript Countdown v0.0.1
+/** @preserve javascript Countdown v0.0.2
  * (c) 2013, Alexandr Borisov.
  * https://github.com/aishek/js-countdown
  */
@@ -49,7 +49,8 @@ Countdown.prototype.start_from = function(seconds_from_unix_epoch_to_start_from)
     seconds_from_unix_epoch_to_start_from = this.seconds_from_unix_epoch_now();
   }
 
-  this.start(seconds_from_unix_epoch_to_start_from, 1, null);
+  var current = this.seconds_from_unix_epoch_now() - seconds_from_unix_epoch_to_start_from;
+  this.start(current, 1, null);
 };
 
 /** @private */
