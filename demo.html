@@ -6,14 +6,34 @@
   <script src="countdown.min.js"></script>
 </head>
 <body>
+<p style="text-align: center;">Until year 2038 problem remains<br><span id="countdown"></span></p>
+<script>
+  var countdown_element = document.getElementById('countdown'),
+      until_year_2038_problem_en_label_builder = Countdown.Helper.Pluralize.label_builder_factory('en'),
+      until_year_2038_problem_countdown = new Countdown(
+        {
+          progress: function(seconds) {
+            countdown_element.innerHTML = until_year_2038_problem_en_label_builder(seconds);
+          },
+          complete: function() {
+            countdown_element.innerHTML = 'Meet "Year 2038 problem"!';
+          }
+        }
+      );
+
+  var date_2038_problem = Date.UTC(2038, 1, 19, 3, 14, 7);
+
+  until_year_2038_problem_countdown.start_to(date_2038_problem / 1000);
+</script>
+
 <p style="text-align: center;" id="to"></p>
 <script>
   var to = document.getElementById('to'),
-      ru_label_builder = Countdown.Helper.Pluralize.label_builder_factory('en'),
+      en_label_builder = Countdown.Helper.Pluralize.label_builder_factory('en'),
       to_countdown = new Countdown(
         {
           progress: function(seconds) {
-            to.innerHTML = ru_label_builder(seconds);
+            to.innerHTML = en_label_builder(seconds);
           },
           complete: function() {
             console.log("[to] complete");
@@ -32,11 +52,11 @@
 <p style="text-align: center;" id="from"></p>
 <script>
   var from = document.getElementById('from'),
-      en_label_builder = Countdown.Helper.Pluralize.label_builder_factory('ru'),
+      ru_label_builder = Countdown.Helper.Pluralize.label_builder_factory('ru'),
       from_countdown = new Countdown(
         {
           progress: function(seconds) {
-            from.innerHTML = en_label_builder(seconds);
+            from.innerHTML = ru_label_builder(seconds);
           },
           complete: function() {
             console.log("[from] complete");
