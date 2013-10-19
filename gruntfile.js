@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         atBegin: true
       },
       js: {
-        files: 'src/*.js',
+        files: 'src/**/*.js',
         tasks: ['concat', 'closure-compiler']
       }
     },
@@ -17,7 +17,10 @@ module.exports = function(grunt) {
         src: [
           'src/module_begin.js',
           'src/countdown.js',
-          'src/other.js',
+          'src/helper.js',
+          'src/helper/progress.js',
+          'src/helper/pluralize.js',
+          'src/helper/pluralize/ru.js',
           'src/module_end.js'
         ],
         dest: 'countdown.js'
