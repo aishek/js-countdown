@@ -20,7 +20,13 @@
           }
         }
       );
-  to_countdown.start_to(1382811644);
+
+  var now_plus_seven_days = new Date();
+      now_plus_seven_days.setDate(now_plus_seven_days.getDate() + 7);
+
+  var now_plus_seven_days_seconds_from_epoch = Math.floor(now_plus_seven_days.getTime() / 1000);
+
+  to_countdown.start_to(now_plus_seven_days_seconds_from_epoch);
 </script>
 
 <p style="text-align: center;" id="from"></p>

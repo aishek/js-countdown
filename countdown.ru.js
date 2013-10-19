@@ -19,10 +19,11 @@ function Countdown(options){
 };
 
 /**
- * Starts countdown to point in future, specified is seconds.
- * Seconds, wich passes to progress callback, decremented in series.
- * When seconds became 0, no progress callback called,
- * but complete does, and countdown stops.
+ * Starts countdown to point in future, specified is seconds from epoch
+ * ({@link http://en.wikipedia.org/wiki/Unix_time|Unix_time}). Seconds,
+ * which passes to progress callback, decremented in series. When
+ * seconds became 0, no progress callback called, but complete does,
+ * and countdown stops.
  *
  * @param {Number} seconds_form_unix_epoch_to_complete
  */
@@ -31,15 +32,17 @@ Countdown.prototype.start_to = function(seconds_form_unix_epoch_to_complete) {
     throw new Error("must specify seconds_form_unix_epoch_to_complete for countdown.start_to()");
   }
 
-  this.start(seconds_form_unix_epoch_to_complete, -1, 0);
+  var current = seconds_form_unix_epoch_to_complete - this.seconds_from_unix_epoch_now();
+  this.start(current, -1, 0);
 };
 
 /**
- * Starts countdown from fixed point, specified is seconds.
+ * Starts countdown from fixed point, specified is seconds from epoch
+ * ({@link http://en.wikipedia.org/wiki/Unix_time|Unix_time}).
  * Seconds, wich passes to progress callback, incremented in series,
  * so complete callback never called.
  *
- * @param {Number} seconds_from_unix_epoch_to_start_from
+ * @param {Number} [seconds_from_unix_epoch_to_start_from=now]
  */
 Countdown.prototype.start_from = function(seconds_from_unix_epoch_to_start_from) {
   if (typeof(seconds_from_unix_epoch_to_start_from) !== 'number') {
