@@ -9,7 +9,7 @@
 <p style="text-align: center;" id="to"></p>
 <script>
   var to = document.getElementById('to'),
-      ru_label_builder = Countdown.Helper.Pluralize.label_builder_factory('ru'),
+      ru_label_builder = Countdown.Helper.Pluralize.label_builder_factory('en'),
       to_countdown = new Countdown(
         {
           progress: function(seconds) {
@@ -26,7 +26,7 @@
 <p style="text-align: center;" id="from"></p>
 <script>
   var from = document.getElementById('from'),
-      en_label_builder = Countdown.Helper.Pluralize.label_builder_factory('en'),
+      en_label_builder = Countdown.Helper.Pluralize.label_builder_factory('ru'),
       from_countdown = new Countdown(
         {
           progress: function(seconds) {
