@@ -1,7 +1,16 @@
+/**
+ * Creates a Progress instance: container for days, hours, minutes, seconds calculated from passed seconds;
+ *
+ * @constructor
+ * @param {Number} seconds
+ */
 function Progress(seconds) {
   this.value = seconds;
 };
 
+/**
+ * @returns {Number} seconds from seconds, passed to constructor, minus days, hours and minutes
+ */
 Progress.prototype.seconds = function() {
   if (!this.calculated) {
     this.calculated = this.calculate();
@@ -10,6 +19,9 @@ Progress.prototype.seconds = function() {
   return this.calculated.seconds;
 };
 
+/**
+ * @returns {Number} minutes from seconds, passed to constructor, minus days and hours
+ */
 Progress.prototype.minutes = function() {
   if (!this.calculated) {
     this.calculated = this.calculate();
@@ -18,6 +30,9 @@ Progress.prototype.minutes = function() {
   return this.calculated.minutes;
 };
 
+/**
+ * @returns {Number} hours from seconds, passed to constructor, minus days
+ */
 Progress.prototype.hours = function() {
   if (!this.calculated) {
     this.calculated = this.calculate();
@@ -26,6 +41,9 @@ Progress.prototype.hours = function() {
   return this.calculated.hours;
 };
 
+/**
+ * @returns {Number} days from seconds, passed to constructor
+ */
 Progress.prototype.days = function() {
   if (!this.calculated) {
     this.calculated = this.calculate();
@@ -34,8 +52,10 @@ Progress.prototype.days = function() {
   return this.calculated.days;
 };
 
+/** @private */
 Progress.prototype.SECONDS_COUNTS = [86400, 3600, 60, 1];
 
+/** @private */
 Progress.prototype.calculate = function() {
   var seconds_counts = this.SECONDS_COUNTS,
       values = [],

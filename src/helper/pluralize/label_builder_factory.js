@@ -1,3 +1,10 @@
+/**
+ * Returns function, which returns label for days, hours, minutes and seconds in pluralized style
+ * for passed seconds (for example "1 day 2 hours 3 minutes 1 second") in specified language.
+ *
+ * @param {String} language language, wich use for pluralization of days, hours, minutes and seconds
+ * @returns {Function}
+ */
 Countdown.Helper.Pluralize.label_builder_factory = function(language) {
   var language_base = Countdown.Helper.Pluralize[language];
 
