@@ -15,8 +15,10 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: [
-          'src/begin.js',
-          'src/end.js'
+          'src/module_begin.js',
+          'src/countdown.js',
+          'src/other.js',
+          'src/module_end.js'
         ],
         dest: 'countdown.js'
       }
