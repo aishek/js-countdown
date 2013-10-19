@@ -7,19 +7,19 @@ Javascript countdown ready-to-use solution with pluralization in English and Rus
 
 ## Quick example
 ```html
-<p style="text-align: center;">Until year 2038 problem remains<br><span id="countdown"></span></p>
+<p style="text-align: center;">Until year 2038 problem remains<br><span id="output_target"></span></p>
 ```
 
 ```js
-var countdown_element = document.getElementById('countdown'),
-    until_year_2038_problem_en_label_builder = Countdown.Helper.Pluralize.label_builder_factory('en'),
-    until_year_2038_problem_countdown = new Countdown(
+var output_target = document.getElementById('countdown'),
+    label_builder = Countdown.Helper.Pluralize.label_builder_factory('en'),
+    countdown = new Countdown(
       {
         progress: function(seconds) {
-          countdown_element.innerHTML = until_year_2038_problem_en_label_builder(seconds);
+          output_target.innerHTML = label_builder(seconds);
         },
         complete: function() {
-          countdown_element.innerHTML = 'Meet "Year 2038 problem"!';
+          output_target.innerHTML = 'Meet "Year 2038 problem"!';
         }
       }
     );
@@ -27,7 +27,7 @@ var countdown_element = document.getElementById('countdown'),
 var date_2038_problem = Date.UTC(2038, 1, 19, 3, 14, 7),
     seconds_from_epoch_to_date_2038_problem = Math.floor(date_2038_problem / 1000);
 
-until_year_2038_problem_countdown.start_to(seconds_from_epoch_to_date_2038_problem);
+countdown.start_to(seconds_from_epoch_to_date_2038_problem);
 ```
 
 [All examples](http://aishek.github.io/js-countdown/)
